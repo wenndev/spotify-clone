@@ -1,0 +1,496 @@
+@import "~bootstrap/scss/bootstrap";
+@import "reset.scss";
+@import "variables.scss";
+
+.color-default {
+    color: $default-color;
+}
+
+a,
+button {
+    text-decoration: none !important;
+}
+
+#header #header-overlay {
+    background-color: $color-black;
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    transition: $color-black 0.25s;
+    z-index: -1;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    color: $color-white;
+
+    .root {
+        height: 100vh;
+        position: relative;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "navbar main-view main-view"
+            "player player player";
+
+        .nav-bar {
+            grid-area: navbar;
+            background-color: $color-black;
+            width: 15rem;
+            min-height: 0;
+            flex: 1;
+
+            .nav-bar-header {
+                .logo {
+                    width: 8.4rem;
+                    max-height: 2.68rem;
+                }
+            }
+
+            .navbar-nav {
+                padding: 5px 8px;
+
+                .nav-item.active a {
+                    background-color: #282828;
+                    opacity: 0.8;
+                }
+
+                .nav-item a {
+                    border-radius: 4px;
+                    padding: 0 1rem;
+                    height: 2.67rem;
+                    opacity: 0.6;
+                    font-weight: 600;
+                    font-size: 13.5px;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    i {
+                        margin-right: 1.05rem;
+                        font-size: 1.45rem;
+                    }
+                }
+            }
+
+            .root-list {
+                flex: 1;
+                min-height: 0;
+
+                .root-list-header h2 {
+                    font-size: 0.75rem;
+                    margin-left: 1.5rem;
+                    letter-spacing: 0.015em;
+                    text-transform: uppercase;
+                    margin-bottom: 0.85rem;
+                    font-weight: bold;
+                }
+
+                .root-list-body {
+                    .root-list-item {
+                        padding: 5px 24px;
+                        opacity: 0.6;
+                        font-weight: 500;
+                        cursor: pointer;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+
+                        span {
+                            font-weight: 600;
+                            font-size: 13.5px;
+                        }
+
+                        .root-list-icon {
+                            width: 2.1rem;
+                            height: 2rem;
+                            color: $color-black;
+                            background-color: $color-white;
+                            margin-right: 1.1rem;
+                        }
+
+                        .root-list-icon.heart {
+                            background: linear-gradient(135deg, #450af5, #c4efd9);
+                            color: $color-white;
+                        }
+                    }
+                }
+
+                .root-list-divider {
+                    margin: 8px 24px;
+                    background-color: #4d4b4b;
+                    border: none;
+                    height: 1px;
+                }
+
+                .play-list-scroll {
+                    padding: 8px 24px !important;
+                }
+
+                .play-list-scroll li a {
+                    color: $color-white;
+                    opacity: 0.6;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    display: block;
+                    height: 32px;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+
+                .navbar-footer {
+                    background-color: $color-black;
+
+                    a {
+                        padding: 5px 24px;
+                        color: $color-white;
+                        opacity: 0.6;
+                        height: 2, 7rem;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+
+                    span {
+                        margin-left: 8px;
+                    }
+                }
+            }
+        }
+
+        // TOP BAR
+
+        .top-bar {
+            grid-area: main-view;
+            height: 4rem;
+            z-index: 2;
+
+            header {
+                padding: 1.5rem 3.3rem 1.5rem 2.2rem;
+
+                .icons-action-left button {
+                    border: none;
+                    height: 2.2rem;
+                    width: 2.2rem;
+                    border-radius: 50%;
+                    color: $color-white;
+                    background-color: rgba(0, 0, 0, 0.7);
+                    margin: 0 5px;
+                }
+
+                .btn-upgrade {
+                    background-color: rgb(0, 0, 0);
+                    color: $color-white;
+                    border: 1px solid $color-white;
+                    font-size: 11.8px;
+                    font-weight: 700;
+                    letter-spacing: 1.2px;
+                    text-transform: uppercase;
+                    padding: 8px 34px;
+                    border-radius: 3.5rem;
+
+                    &:hover {
+                        transform: scale(1.07);
+                    }
+                }
+
+                .menu {
+                    .avatar {
+                        width: 2rem;
+                        height: 2rem;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    .btn-avatar {
+                        height: 2.4rem;
+                        border-radius: 1.4rem;
+                        border: none;
+                        padding: 5px;
+                        color: $color-white;
+                        background-color: rgb(0, 0, 0);
+
+                        &:hover {
+                            background-color: #282828;
+                        }
+                    }
+
+                    span {
+                        margin-left: 8px;
+                        font-weight: 700;
+                        font-size: 13px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        max-width: 7.4rem;
+                    }
+
+                    .dropdown-menu {
+                        background-color: #181818;
+                        margin-top: 8px;
+                        box-shadow: 0 4px 4px rgb(0, 0, 0, 0.7);
+                        border-radius: 4px;
+                        border: 1px solid rgb(0, 0, 0, 0.1);
+
+                        .dropdown-item {
+                            color: $color-white;
+                            opacity: 0.6;
+                            padding: 3px 20px;
+                            line-height: 2.2rem;
+
+                            &:hover {
+                                opacity: 1;
+                                background-color: #282828;
+                            }
+                        }
+
+                        .dropdown-divider {
+                            height: 0;
+                            border-top: 1px solid #404040;
+                            margin: 0;
+                        }
+                    }
+
+                    &:hover>.dropdown-menu,
+                    button {
+                        display: block;
+                        background-color: #181818;
+                    }
+                }
+            }
+        }
+
+        .main {
+            grid-area: main-view;
+            flex: 1;
+            height: 100%;
+            min-height: 0;
+            overflow-y: scroll;
+            background-color: #181818;
+
+            .margin-top {
+                position: sticky;
+                top: 0;
+                height: 4rem;
+            }
+
+            .main-container {
+                padding: 1.2rem 2.2rem;
+                flex: 1;
+                min-height: 0;
+
+                .title {
+                    font-size: 1.4rem;
+                    font-weight: bold;
+                    line-height: 1.8rem;
+                    letter-spacing: 0.04em;
+                    color: $color-white;
+                }
+
+                .subtitle {
+                    color: $color-white;
+                    opacity: 0.6;
+                }
+
+                .list {
+                    padding: 0px 7px;
+
+                    .col-12 {
+                        padding-left: 6px;
+                        padding-right: 6px;
+
+                        .card {
+                            padding: 1.2rem 1.2rem;
+                            background-color: #282828;
+                            border-radius: 8px;
+
+                            .card-body {
+                                min-height: 4.1rem;
+
+                                .card-title {
+                                    font-size: 0.9rem;
+                                    font-weight: 700;
+                                    line-height: 1.5rem;
+                                    letter-spacing: 0.06rem;
+                                    overflow: hidden;
+                                    color: $color-white;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    margin: 0;
+                                }
+
+                                .card-text {
+                                    font-size: 12px;
+                                    line-height: 1.1rem;
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                    display: -webkit-box;
+                                    margin-top: 4px;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                    color: $color-white;
+                                    opacity: 0.6;
+                                }
+                            }
+
+                            .btn-play {
+                                position: absolute;
+                                right: 0.8rem;
+                                bottom: 0.8rem;
+                                opacity: 0;
+
+                                button {
+                                    color: $color-white;
+                                    background-color: #1db954;
+                                    border-radius: 50%;
+                                    border: none;
+                                    width: 2.5rem;
+                                    height: 2.5rem;
+                                    padding: 0;
+                                    font-size: 12px;
+                                }
+                            }
+
+                            &:hover>.btn-play {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+
+                .view-more {
+                    font-size: 12px;
+                    font-weight: 700;
+                    line-height: 1rem;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: $color-white;
+                    opacity: 0.6;
+
+                    &:hover {
+                        color: $color-white;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .player {
+            grid-area: player;
+            background-color: #282828;
+            height: 4.5rem;
+            border-top: 1px solid #181818;
+
+            footer {
+                padding: 0 1.5rem;
+
+                .cover {
+                    img {
+                        max-width: 3.5rem;
+                        max-height: 3.4rem;
+                    }
+                }
+
+                .text {
+                    margin-right: 9px;
+
+                    label {
+                        line-height: 1.5rem;
+                        letter-spacing: 0.015em;
+                        color: $color-white;
+                        text-align: left;
+                    }
+
+                    .card-text {
+                        font-size: 0.8rem;
+                        line-height: 1.5rem;
+                        letter-spacing: 0.015em;
+                        text-align: left;
+                        opacity: 0.6;
+                    }
+                }
+
+                .icone {
+                    width: 2.1rem;
+                }
+
+                .player-center {
+                    width: 100%;
+                    max-width: 37rem;
+
+                    .player-center-controls {
+                        max-width: 14rem;
+                        margin: 0 auto;
+                        display: flex;
+                        align-items: center;
+
+                        .icon {
+                            width: 2.1rem;
+                            height: 2.2rem;
+                        }
+
+                        .play {
+                            display: flex;
+                            align-items: center;
+                            width: 2.5rem;
+                            height: 2.4rem;
+                            font-size: 1.8rem;
+                        }
+                    }
+
+                    .progress-time {
+                        font-size: 0.8rem;
+                        line-height: 1.5rem;
+                        letter-spacing: 0.015em;
+                        text-align: left;
+                        opacity: 0.6;
+                        margin: 0 4px;
+                    }
+
+                    .progress-bar,
+                    .progress {
+                        background-color: #535353;
+                        border-radius: 2px;
+                        display: flex;
+                        height: 4px;
+                        width: 100%;
+
+                        .progress {
+                            background-color: $default-color;
+                            width: 25%;
+                        }
+                    }
+                }
+
+                .volume-bar {
+                    width: 5.5rem;
+
+                    .progress-bar,
+                    .progress {
+                        background-color: #535353;
+                        border-radius: 2px;
+                        display: flex;
+                        height: 4px;
+                        width: 100%;
+
+                        .progress {
+                            background-color: $default-color;
+                            width: 75%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
